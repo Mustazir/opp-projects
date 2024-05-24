@@ -303,31 +303,29 @@ class EmployeeSystem:
             if self.var_emp_code.get() == "":
                 messagebox.showerror("Error", "Employee code must be required")
             else:
-                cur.execute("UPDATE employees SET designation=%s, name=%s, dob=%s, doj=%s, age=%s, experience=%s, gender=%s, email=%s, contact=%s, address=%s, month=%s, year=%s, salary=%s, total_days=%s, absents=%s, medical=%s, pf=%s, convence=%s, net_salary=%s WHERE emp_code=%s", (
-                    self.var_designation.get(),
-                    self.var_name.get(),
-                    self.var_dob.get(),
-                    self.var_doj.get(),
-                    self.var_age.get(),
-                    self.var_experience.get(),
-                    self.var_gender.get(),
-                    self.var_email.get(),
-                    self.var_pi.get(),
-                    self.var_email.get(),
-                    self.var_contact.get(),
-                    self.txt_address.get('1.0', END),
-                    self.var_month.get(),
-                    self.var_year.get(),
-                    self.var_salary.get(),
-                    self.var_total_days.get(),
-                    self.var_absents.get(),
-                    self.var_medical.get(),
-                    self.var_pf.get(),
-                    self.var_convence.get(),
-
-                    self.var_net_salary.get(),
-                    self.var_emp_code.get(),
-                ))
+                cur.execute(
+                    f"UPDATE employees SET designation='{self.var_designation.get()}', "
+                    f"name='{self.var_name.get()}', "
+                    f"dob='{self.var_dob.get()}', "
+                    f"doj='{self.var_doj.get()}', "
+                    f"age='{self.var_age.get()}', "
+                    f"experience='{self.var_experience.get()}', "
+                    f"gender='{self.var_gender.get()}', "
+                    f"email='{self.var_email.get()}', "
+                    f"contact='{self.var_pi.get()}', "
+                    f"email='{self.var_email.get()}', "
+                    f"address='{self.txt_address.get('1.0', END)}', "
+                    f"month='{self.var_month.get()}', "
+                    f"year='{self.var_year.get()}', "
+                    f"salary='{self.var_salary.get()}', "
+                    f"total_days='{self.var_total_days.get()}', "
+                    f"absents='{self.var_absents.get()}', "
+                    f"medical='{self.var_medical.get()}', "
+                    f"pf='{self.var_pf.get()}', "
+                    f"convence='{self.var_convence.get()}', "
+                    f"net_salary='{self.var_net_salary.get()}' "
+                    f"WHERE emp_code='{self.var_emp_code.get()}'"
+                )
                 con.commit()
                 messagebox.showinfo("Success", "Employee Updated Successfully")
                 self.clear()
